@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: rgb(158, 160, 162);
+    padding: 1rem 0;
+
+    .nav-left {
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav-right {
+        display: flex;
+        align-items: center;
+
+        &-item {
+            display: flex;
+            align-items: center;
+        }
+        &-item--active {
+            color: rgb(17, 91, 171);
+            font-weight: 700;
+            cursor: pointer;
+        }
+    }
+    .nav-divider {
+       padding: 0 1rem;
+    }
+}
