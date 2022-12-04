@@ -15,9 +15,11 @@ This is the test project from HelpJuice for front end developer position. The ma
 - Run "npm start"
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### [Live link](https://public-bookstore.herokuapp.com/)
+### [Live link]()
 
-### [Screenshot](./src/assets/screenshot.png)
+### [Screenshot](public/images/Screenshot1.png "with editor and different blocks")
+
+### [Screenshot2](public/images/Screenshot.png "normal page")
 
 ### Languages Used
 
