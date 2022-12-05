@@ -6,6 +6,7 @@ This is the test project from HelpJuice for front end developer position. The ma
 
 - Adding heading block if started with pattern /1.
   -give user to select normal block or heading block with /1 option.
+  -remove block when content is empty and backspace is pressed.
 
 ### Steps for local setup
 
@@ -15,7 +16,9 @@ This is the test project from HelpJuice for front end developer position. The ma
 - Run "npm start"
 - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### [Live link]()
+### [Demo videoLink](https://www.loom.com/share/74282db80b0948498da1eff9d280b619)
+
+### [Live demo](https://starlit-flan-e69a41.netlify.app/)
 
 ### [Screenshot](public/images/Screenshot1.png "with editor and different blocks")
 
