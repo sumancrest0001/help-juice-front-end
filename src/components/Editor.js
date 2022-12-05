@@ -10,7 +10,6 @@ function Editor() {
       id: uuidv4(),
     },
   ]);
-  console.log("----------------------", textBlocks);
   const [focusedDOMId, setFocusedDOMId] = useState();
   const activeElement = useRef(null);
 
@@ -34,10 +33,23 @@ function Editor() {
     setTextBlocks(oldTextBlocks);
   };
 
-  const handleBlockChange = ({ index, style, updatedData }) => {
+  const handleBlockChange = ({ index, updatedData }) => {
     const prevTextBlocks = JSON.parse(JSON.stringify(textBlocks));
     prevTextBlocks[index] = updatedData;
     setTextBlocks(prevTextBlocks);
+  };
+
+  const handleRemoveBlock = (index) => {
+    if (textBlocks.length === 1) {
+      return;
+    }
+    const prevTextBlocks = JSON.parse(JSON.stringify(textBlocks));
+    const newBlocks = [
+      ...prevTextBlocks.slice(0, index),
+      ...prevTextBlocks.slice(index + 1),
+    ];
+    setTextBlocks(newBlocks);
+    setFocusedDOMId(newBlocks[index - 1].id);
   };
 
   return (
@@ -54,6 +66,7 @@ function Editor() {
             type={item.type}
             onChangeBlock={handleBlockChange}
             generateBlock={generateBlock}
+            removeBlock={handleRemoveBlock}
           />
         ))}
       </div>

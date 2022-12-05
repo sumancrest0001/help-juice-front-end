@@ -2,51 +2,7 @@ import React, { useState, useRef } from "react";
 import { RxText } from "react-icons/rx";
 import { v4 as uuidv4 } from "uuid";
 import { FiMenu } from "react-icons/fi";
-
-const pattern = "/1";
-const dropdowns = [
-  {
-    title: "Heading 1",
-    value: "heading1",
-    description: "Shortcut: type # + space",
-  },
-  {
-    title: "Expandable Heading 1",
-    value: "expandableHeading1",
-    description: "Shortcut: type >># + space",
-  },
-];
-
-const getStylePlaceholder = (type) => {
-  switch (type) {
-    case "heading1":
-      return {
-        style: {
-          fontSize: "2rem",
-          fontWeight: 800,
-          lineHeight: "2.5rem",
-          padding: "1.5rem 0",
-        },
-        placeholder: "Heading 1",
-      };
-    case "paragraph":
-      return {
-        style: {
-          fontSize: "1rem",
-          fontWeight: 400,
-          lineHeight: "1.25rem",
-          color: "rgb(103, 104, 105)",
-          padding: "1rem 0",
-        },
-        placeholder: "Type / for blocks, @ to link docs or people",
-      };
-    default:
-      return {
-        style: { fontSize: "1rem", fontWeight: 400, lineHeight: "1.25rem" },
-        placeholder: "Type / for blocks, @ to link docs or people",
-      };
-  }
-};
+import { pattern, getStylePlaceholder, dropdowns } from "../utilities";
 
 const EditorElement = ({
   focusedDOMId,
@@ -57,6 +13,7 @@ const EditorElement = ({
   setFocusedDOMId,
   content,
   type = "paragraph",
+  removeBlock,
 }) => {
   const [matchedHeaderPattern, setMatchedHeaderPattern] = useState(false);
   const { placeholder, style } = getStylePlaceholder(type);
@@ -89,6 +46,9 @@ const EditorElement = ({
         }
       );
       e.preventDefault();
+    }
+    if (e.key === "Backspace" && !value) {
+      removeBlock(indexValue);
     }
   };
 
